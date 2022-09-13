@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+</head>
+
+<body>
+	<div class="container">
+		<table class="table table-striped">
+			<thead class=" table-dark">
+				<tr>
+					<th>#</th>
+					{% for key in keys %}
+					<th>{{ key }}</th>
+					{% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+				{% for value in val %}
+				<tr>
+					<th>{{ forloop.counter }}</th>
+					{% for item in value %}
+					<td>
+						{{ item }}
+					</td>
+					{% endfor %}
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<script src="/static/js/bootstrap.js"></script>
+</body>
+
+</html>

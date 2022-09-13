@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/' , show),
     path('api1/' , source),
-    path('table/' , TableView, name="table"),
+    path('table/<str:name>' , TableView, name="table"),
+    path('list/' , ListView, name="list"),
 ]

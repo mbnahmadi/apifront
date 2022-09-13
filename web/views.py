@@ -28,8 +28,8 @@ def source(request):
     return render(request , "source.html" , {})
     
 
-def TableView(request):
-    response = requests.get('http://127.0.0.1:5000/api/0')
+def TableView(request, name):
+    response = requests.get(f'http://127.0.0.1:5000/api/{name}')
     r = response.json()
     # html = '<html><body>%s</body></html>' %r
     keys = r[0].keys()
@@ -44,4 +44,16 @@ def TableView(request):
         "keys": keys,
         "val": val,
     }
-    return render(request, "html.html", context)
+    return render(request, "table.html", context)
+
+
+def ListView(request):
+    list_api = requests.get('http://127.0.0.1:5000/api/')
+    list_api = list_api.json()
+    lists = []
+    for i in list_api:
+        lists.append(i.removesuffix('.mean') )
+    context={
+        "list_api": lists,
+    }
+    return render(request, "list.html", context)
