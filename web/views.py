@@ -16,6 +16,16 @@ def show(request):
                }
     # html = '<html><body>%s</body></html>' %r
     return render(request , "test.html" , context)
+
+
+
+def source(request):
+    # response = requests.get('http://127.0.0.1:8001/api/0')
+    # r = response.json()
+    # context = {"api" : r,
+    #            }
+    # # html = '<html><body>%s</body></html>' %r
+    return render(request , "source.html" , {})
     
 
 # def show(request):
