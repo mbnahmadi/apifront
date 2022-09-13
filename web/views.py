@@ -1,3 +1,4 @@
+from multiprocessing import context
 from urllib import response
 from django.shortcuts import render
 import requests
@@ -9,9 +10,11 @@ from django.http import HttpResponse
 
 
 def show(request):
-    response = requests.get('http://127.0.0.1:8000/api/0')
+    response = requests.get('http://127.0.0.1:8001/api/0')
     r = response.json()
-    html = '<html><body>%s</body></html>' %r
-    return HttpResponse(html)
+    context = {"api" : r,
+               }
+    # html = '<html><body>%s</body></html>' %r
+    return render(request , "test.html" , context)
     
 
