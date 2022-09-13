@@ -28,20 +28,20 @@ def source(request):
     return render(request , "source.html" , {})
     
 
-# def show(request):
-#     response = requests.get('http://127.0.0.1:8000/api/0')
-#     r = response.json()
-#     # html = '<html><body>%s</body></html>' %r
-#     keys = r[0].keys()
-#     val = []
-#     for i, item in enumerate(r):
-#         val.append([])
-#         for key in keys:
-#             val[i].append(item[key])
-#     print(val)
-#     context={
-#         "api" : r,
-#         "keys": keys,
-#         "val": val,
-#     }
-#     return render(request, "html.html", context)
+def TableView(request):
+    response = requests.get('http://127.0.0.1:5000/api/0')
+    r = response.json()
+    # html = '<html><body>%s</body></html>' %r
+    keys = r[0].keys()
+    val = []
+    for i, item in enumerate(r):
+        val.append([])
+        for key in keys:
+            val[i].append(item[key])
+    print(val)
+    context={
+        "api" : r,
+        "keys": keys,
+        "val": val,
+    }
+    return render(request, "html.html", context)
